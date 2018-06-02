@@ -37,9 +37,8 @@ print('Misclassification error for the lambda value 1 on the testing set is: ', 
 # Plot miscalssification error and objective value
 linear_svm_square_loss.plot_misclassification_error(betas, X_train, y_train, title='Training set misclassification error when lambda = 1', file_name = 'misclass_plot_train_lambda1.png')
 linear_svm_square_loss.plot_misclassification_error(betas, X_test, y_test, title='Test set misclassification error when lambda = 1', file_name = 'misclass_plot_test_lambda1.png')
-linear_svm_square_loss.plot_objective(betas, lambduh, X_train, y_train, file_name = 'objective_plot_train_lambda1.png' )
+linear_svm_square_loss.plot_objective(betas, lambduh, X_train, y_train, file_name = 'objective_plot_train_lambda1.png')
  
-
 # Find optimal value of lambda through cross-validation
 optimal_lambduh2 = linear_svm_square_loss.find_optimal_lambduh(X_test,y_test,t_init,-100,100,0.1)
 print('Optimal value of lambda is: ', optimal_lambduh2)
