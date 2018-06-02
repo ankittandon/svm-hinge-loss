@@ -35,12 +35,8 @@ print('Misclassification error for the lambda value 1 on the training set is: ',
 print('Misclassification error for the lambda value 1 on the testing set is: ', error_test_lambda1)
 
 # Plot miscalssification error and objective value
-linear_svm_square_loss.plot_misclassification_error(betas, X_train, y_train,
-                             title='Training set misclassification error when lambda = 1',
-                             file_name = 'misclass_plot_train_lambda1.png')
-linear_svm_square_loss.plot_misclassification_error(betas, X_test, y_test,
-                             title='Test set misclassification error when lambda = 1',
-                             file_name = 'misclass_plot_test_lambda1.png')
+linear_svm_square_loss.plot_misclassification_error(betas, X_train, y_train, title='Training set misclassification error when lambda = 1', file_name = 'misclass_plot_train_lambda1.png')
+linear_svm_square_loss.plot_misclassification_error(betas, X_test, y_test, title='Test set misclassification error when lambda = 1', file_name = 'misclass_plot_test_lambda1.png')
 linear_svm_square_loss.plot_objective(betas, lambduh, X_train, y_train, file_name = 'objective_plot_train_lambda1.png' )
  
 
@@ -56,10 +52,6 @@ print('Misclassification error for the optimal lambda value on the training set 
 print('Misclassification error for the optimal lambda value on the testing set is: ', error_test_lambda_opt)
 
 # Plot miscalssification error and objective value
-linear_svm_square_loss.plot_misclassification_error(betas_opt, X_train, y_train,
-                             title='Training set misclassification error for the optimal lambda value.',
-                             file_name = 'misclass_plot_train_lambda_opt.png')
-linear_svm_square_loss.plot_misclassification_error(betas_opt, X_test, y_test,
-                             title='Test set misclassification error for the optimal lambda value.',
-                             file_name = 'misclass_plot_test_lambda_opt.png')
+linear_svm_square_loss.plot_misclassification_error(betas_opt, X_train, y_train, title='Training set misclassification error for the optimal lambda value.', file_name = 'misclass_plot_train_lambda_opt.png')
+linear_svm_square_loss.plot_misclassification_error(betas_opt, X_test, y_test, title='Test set misclassification error for the optimal lambda value.', file_name = 'misclass_plot_test_lambda_opt.png')
 linear_svm_square_loss.plot_objective(betas_opt, optimal_lambduh2, X_train, y_train, file_name = 'objective_plot_train_lambda_opt.png')
