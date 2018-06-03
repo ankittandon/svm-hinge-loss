@@ -5,7 +5,7 @@ import scipy.linalg
 import sklearn.preprocessing
 
 
-def computegrad(beta, l, x=X_train, y=y_train):
+def computegrad(beta, l, x, y):
     """Computes gradient.
 
     Parameters
@@ -27,7 +27,7 @@ def computegrad(beta, l, x=X_train, y=y_train):
     b = 2*l*beta
     return a+b
 
-def obj(beta, l, x=X_train, y=y_train):
+def obj(beta, l, x, y):
     """Computes objective value.
 
     Parameters
@@ -51,7 +51,7 @@ def obj(beta, l, x=X_train, y=y_train):
     return (c+d)
 
 
-def backtracking(beta, l, alpha=0.5, b=0.8, maxiteration=100, t = 1, x=X_train, y=y_train):
+def backtracking(beta, l, x, y, alpha=0.5, b=0.8, maxiteration=100, t = 1):
     """Updates the step size using backtracking algorithm.
 
     Parameters
@@ -138,30 +138,30 @@ def compute_misclassification_error(beta_opt, x, y):
     return np.mean(y_pred != y)
 
 def plot_misclassification_error(betas, x, y, title='', file_name =''):
-""" Plot misclassication error
+    """ Plot misclassication error
 
-Parameters
-----------
-beta_opt: beta values
-x: features
-y: labels
-title: title of the plot
-file_name: save the plot with the name
-Returns
--------
-Plot. x-axis: interation
-      y-axis: misclassication error
-"""
-iter = np.size(betas, 0)
-errors = np.zeros(iter)
-for i in range(iter):
-    errors[i] = compute_misclassification_error(betas[i, :], x, y)
-fig, ax = plt.subplots()
-ax.plot(range(1, iter + 1), errors, c='red')
-plt.xlabel('Iteration')
-plt.ylabel('Misclassification error')
-if title:
-    plt.title(title)
-if file_name:
-    plt.savefig(file_name)
-plt.show()
+    Parameters
+    ----------
+    beta_opt: beta values
+    x: features
+    y: labels
+    title: title of the plot
+    file_name: save the plot with the name
+    Returns
+    -------
+    Plot. x-axis: interation
+          y-axis: misclassication error
+    """
+    iter = np.size(betas, 0)
+    errors = np.zeros(iter)
+    for i in range(iter):
+        errors[i] = compute_misclassification_error(betas[i, :], x, y)
+    fig, ax = plt.subplots()
+    ax.plot(range(1, iter + 1), errors, c='red')
+    plt.xlabel('Iteration')
+    plt.ylabel('Misclassification error')
+    if title:
+        plt.title(title)
+    if file_name:
+        plt.savefig(file_name)
+    plt.show()
