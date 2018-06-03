@@ -4,7 +4,7 @@ import pandas as pd
 import scipy.linalg
 import sklearn.preprocessing
 from sklearn.model_selection import train_test_split
-import linear_svm_squared_hinge_loss
+import linear_svm_square_loss
 
 # Simulate a dataset with  100 obervations and 50 features
 features = np.zeros((100, 50))
