@@ -27,7 +27,6 @@ def computegrad(beta, l, x=X_train, y=y_train):
     b = 2*l*beta
     return a+b
 
-
 def obj(beta, l, x=X_train, y=y_train):
     """Computes objective value.
 
@@ -137,3 +136,32 @@ def compute_misclassification_error(beta_opt, x, y):
     y_pred = x.dot(beta_opt) > 0.5
     y_pred = y_pred*2 - 1  # Convert to +/- 1, same as logistic regression
     return np.mean(y_pred != y)
+
+def plot_misclassification_error(betas, x, y, title='', file_name =''):
+""" Plot misclassication error
+
+Parameters
+----------
+beta_opt: beta values
+x: features
+y: labels
+title: title of the plot
+file_name: save the plot with the name
+Returns
+-------
+Plot. x-axis: interation
+      y-axis: misclassication error
+"""
+iter = np.size(betas, 0)
+errors = np.zeros(iter)
+for i in range(iter):
+    errors[i] = compute_misclassification_error(betas[i, :], x, y)
+fig, ax = plt.subplots()
+ax.plot(range(1, iter + 1), errors, c='red')
+plt.xlabel('Iteration')
+plt.ylabel('Misclassification error')
+if title:
+    plt.title(title)
+if file_name:
+    plt.savefig(file_name)
+plt.show()
